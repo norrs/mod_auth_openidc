@@ -682,7 +682,7 @@ void oidc_util_set_cookie(request_rec *r, const char *cookieName,
 			c->cookie_domain != NULL ?
 					apr_psprintf(r->pool, ";Domain=%s", c->cookie_domain) : "",
 			((apr_strnatcasecmp("https", oidc_get_current_url_scheme(r)) == 0) ?
-					";Secure" : ""),
+					"" : ""),
 			c->cookie_http_only != FALSE ? ";HttpOnly" : "");
 
 	/* use r->err_headers_out so we always print our headers (even on 302 redirect) - headers_out only prints on 2xx responses */
